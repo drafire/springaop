@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="work" class="com.example.springaop.impl.Work"></bean>
+
+    <bean id="shopping" class="com.example.springaop.impl.Shopping"></bean>
+
+    <!-- 开启aspectj代理 -->
+    <!--<aop:aspectj-autoproxy/>-->
+
+    <bean id="aopAspcet" class="com.example.springaop.annotation.LoginAspect"></bean>
+    <aop:config>
+        <aop:aspect ref="aopAspcet">
+            <aop:pointcut id="poinCut" expression="execution(* com.example.springaop.impl.*.login(..))"></aop:pointcut>
+            <aop:before method="doBefore" pointcut-ref="poinCut"></aop:before>
+            <aop:after method="doAfter" pointcut-ref="poinCut"></aop:after>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
