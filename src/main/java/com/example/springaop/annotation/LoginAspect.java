@@ -2,13 +2,13 @@ package com.example.springaop.annotation;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 @Aspect
-@Service
+@Component
 public class LoginAspect {
 
-    @Pointcut(value = "execution(* com.example.springaop.impl.*.login(..))")
+    @Pointcut(value = "execution(* com.example.springaop.impl.Shopping.login(..))")    //如果这里由impl.*.login(..) 变成了impl.Shopping.login，则不会再匹配Work
     public void poincut(){
     }
 

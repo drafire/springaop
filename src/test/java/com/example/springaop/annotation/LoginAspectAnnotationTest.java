@@ -1,25 +1,23 @@
 package com.example.springaop.annotation;
 
-import com.example.springaop.SpringaopApplication;
-import com.example.springaop.impl.Shopping;
 import com.example.springaop.impl.Work;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
+//import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(JUnit4.class)
+@RunWith(SpringRunner.class)
 @SpringBootTest
-//@ContextConfiguration(classes = SpringaopApplication.class)
 public class LoginAspectAnnotationTest {
 
+    //有时候这里注入不了，是因为依赖的关系
     @Autowired
     private Work work;
 
     @Test
     public void test(){
-        work.login("开始的电脑");
+        work.login("张三");
     }
 }
