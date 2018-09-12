@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class LoginAspectAnnotationTest {
 
-    //有时候这里注入不了，是因为依赖的关系
+    //有时候这里注入不了，是因为pom里面的依赖的关系
     @Autowired
     private Work work;
 
